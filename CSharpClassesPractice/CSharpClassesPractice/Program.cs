@@ -8,7 +8,7 @@ namespace CSharpClassesPractice
         static void Main()
         {
             Auto myCar = new Auto();
-            myCar.Speed = 100;
+            myCar.CurrentSpeed = 40;
             myCar.Make = "BMW";
             myCar.Model = "M3";
             myCar.Year = 2018;
@@ -17,12 +17,20 @@ namespace CSharpClassesPractice
 
             Console.WriteLine(myCar.Make  + " " + myCar.Model);
 
-            //myCar.Accelerate();
-            //myCar.Accelerate();
-            //myCar.Accelerate();
-            //myCar.Decelerate();
+            myCar.Accelerate(5);
+            myCar.Accelerate(6);
+           
 
-            Console.WriteLine("My current speed: " + myCar.Speed);
+            int myCurrentSpeed = 0;
+
+            myCurrentSpeed = myCar.Accelerate(8);
+            Console.WriteLine("My current speed: " + myCar.CurrentSpeed);
+
+            myCurrentSpeed = myCar.Decelerate(10);
+            Console.WriteLine("My current speed: " + myCar.CurrentSpeed);
+
+            string message = myCar.SpeedLimitViolation("Warning: ", 100);
+            Console.WriteLine(message);
         } 
     }
 }

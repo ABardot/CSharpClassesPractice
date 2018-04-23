@@ -8,23 +8,91 @@ namespace CSharpClassesPractice
 {
     class Auto
     {
-        public string Make;
+        private string make;
         public string Model;
         public int Year;
         public string Color;
         public int Miles;
-        public int Speed;
+        private int speed;
 
-        public void Accelerate()
+        public string Make
         {
-            Speed++;
-            Console.WriteLine("Current speed: " + Speed.ToString());
+            get { return make; }
+            set
+            {
+                switch (value)
+                {
+                    case "BMW":
+                        make = value;
+                        break;
+                    case "Audi":
+                        make = value;
+                        break;
+                    default:
+                        throw new Exception("Not a valid Make");
+                }
+
+            }
         }
 
-        public void Decelerate()
+
+        public int CurrentSpeed
         {
-            Speed--;
-            Console.WriteLine("Current speed: " + Speed.ToString());
+            get { return speed; }
+            set
+            {
+                if (value < 0)
+                {
+                    speed = 0;
+                }
+                else if (value > 100)
+                {
+                    speed = 110;
+                }
+                else
+                {
+                    speed = value;
+                }
+            }
+        }
+
+
+
+
+        public int Accelerate(int increasedSpeed)
+        {
+            CurrentSpeed += increasedSpeed;
+            //Speed++;
+            //Console.WriteLine("Current speed: " + Speed.ToString());
+            return speed;
+        }
+
+        public int Decelerate(int decreasedSpeed)
+        {
+            CurrentSpeed += decreasedSpeed;
+            //Speed--;
+            //Console.WriteLine("Current speed: " + Speed.ToString());
+            return speed;
+        }
+
+        public string SpeedLimitViolation(string inititalMessage, int speedLimit)
+        {
+            string message = "";
+
+            if (CurrentSpeed > speedLimit)
+            {
+                message =  "Too Fast!";
+            }
+            else if (CurrentSpeed < speedLimit)
+            {
+                message =  "Too Slow!";
+            }
+            else
+            {
+                message = "You're Okay";
+            }
+
+            return inititalMessage + " " + message;
         }
     }
 }
