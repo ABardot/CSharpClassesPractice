@@ -14,6 +14,11 @@ namespace CSharpClassesPractice
         public string Color;
         public int Miles;
         private int speed;
+        public Engine Engine;
+
+      
+
+
 
         public string Make
         {
@@ -56,9 +61,7 @@ namespace CSharpClassesPractice
             }
         }
 
-
-
-
+       
         public int Accelerate(int increasedSpeed)
         {
             CurrentSpeed += increasedSpeed;
