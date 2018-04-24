@@ -64,6 +64,7 @@ namespace CSharpClassesPractice
             CurrentSpeed += increasedSpeed;
             //Speed++;
             //Console.WriteLine("Current speed: " + Speed.ToString());
+            writeLine("Current speed: " + CurrentSpeed);
             return speed;
         }
 
@@ -72,6 +73,7 @@ namespace CSharpClassesPractice
             CurrentSpeed += decreasedSpeed;
             //Speed--;
             //Console.WriteLine("Current speed: " + Speed.ToString());
+            writeLine("Current speed: " + CurrentSpeed);
             return speed;
         }
 
@@ -93,6 +95,12 @@ namespace CSharpClassesPractice
             }
 
             return inititalMessage + " " + message;
+        }
+
+        private void writeLine(string message)
+        {
+            Console.WriteLine("From my helper method");
+            Console.WriteLine(message);
         }
     }
 }
